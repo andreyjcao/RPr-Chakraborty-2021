@@ -5,11 +5,7 @@ date: "2023-09-28"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-# Planned revisions to reproduction of ....
+# Planned revisions to reproduction of Chakraborty (2021)
 
 Author: Andrey (Andy), Cao
 
