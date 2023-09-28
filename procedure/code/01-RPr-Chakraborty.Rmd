@@ -1857,8 +1857,7 @@ tm_gee_weights <- tm_shape(gee_resid) +
     border.alpha = .2,
     lwd = 0.2,
     palette = "Oranges",
-    legend.hist = FALSE,
-    midpoint = 0
+    legend.hist = FALSE #deleted midpoint = 0 to utilize full color ramp
   ) +
   tm_shape(state) +
     tm_borders("grey", lwd = .5) +
@@ -1873,7 +1872,6 @@ tm_gee_weights <- tm_shape(gee_resid) +
 
 tm_gee_weights
 
-# re
 ```
 
 ```{r save-figures, eval = F}
@@ -2072,7 +2070,6 @@ These comparisons led to further insights and research into discrepancies betwee
 We also discovered an improved method for comparing the results of generalized linear models by plotting all of the model results on a dot-wisker graph using the dotwhisker package.
 
 # TASKS   
-- The final choropleth map has a mistaken parameter causing it to only use half of the available color ramp.
 - Improve the formatting of the missing data table with Kable and/or KableExtra functions and/or by transposing the table to vertical orientation.
 - Integrate Emily’s discussion and any new results that have yet to be discussed into a new discussion section.
 - Separate a conclusions section from the discussion that concludes whether the reproduction attempt was successful, and what the implications are for how the original study contributes to scientific knowledge.
