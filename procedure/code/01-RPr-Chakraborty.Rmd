@@ -356,11 +356,15 @@ However, we replace the missing data with zeros, producing results identical to 
 
 ```{r missing data FIXED}
 # county with missing data
-
-
+ 
 library(kableExtra)
    
-filter(acs_covid, is.na(bpov_pct)) %>% st_drop_geometry() %>% kable()
+filter(acs_covid, is.na(bpov_pct)) %>% st_drop_geometry() %>% 
+  kable(align = "c", caption = "Missing Data") %>%
+  column_spec(2:6, width_min = "5em") %>%
+  column_spec(7, width_min = "2em") %>%
+  kable_styling(full_width = FALSE, latex_options = "scale_down") %>%
+  kableExtra::landscape()
 
    
 # replace NA with 0 for missing data
