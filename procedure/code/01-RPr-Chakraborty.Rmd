@@ -2079,6 +2079,6 @@ We also discovered an improved method for comparing the results of generalized l
 
 # TASKS (DELETE AFTER)
 
--   Improve the formatting of the missing data table with Kable and/or KableExtra functions and/or by transposing the table to vertical orientation.
 -   Integrate Emily's discussion and any new results that have yet to be discussed into a new discussion section.
 -   Separate a conclusions section from the discussion that concludes whether the reproduction attempt was successful, and what the implications are for how the original study contributes to scientific knowledge.
+-   Modify one more thing!
