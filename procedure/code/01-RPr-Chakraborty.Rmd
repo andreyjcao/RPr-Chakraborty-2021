@@ -420,27 +420,6 @@ tm_disability_rates
 ```
 
 
-## Map race rates NEW
-```{r map-race-rates NEW, message = FALSE}
-tm_black_rates <- tm_shape(acs_covid) +
-  tm_polygons("black_pct",
-    title = "Percent of Black People\n(ACS 2014-2018)",
-    style = "quantile",
-    border.alpha = .2,
-    lwd = 0.2,
-    palette = "Oranges"
-  ) +
-  tm_shape(state) +
-  tm_borders("grey", lwd = .5) +
-  tm_layout(
-    legend.position = c("left", "bottom"),
-    legend.title.size = 0.8,
-    legend.text.size = 0.5
-  )
-
-tm_black_rates
-```
-
 ## Descriptive statistics
 
 Calculate descriptive statistics for dependent COVID-19 rate and independent socio-demographic characteristics, reproducing the min, max, mean, and SD columns of original study table 1.
@@ -1025,6 +1004,54 @@ tm_spatialepi_cluster_risk_class
 
 Comparing the cluster and local relative risk classifications for regions like the Southeast, it is apparent that some areas of high risk are represented with large clusters that have an averaging effect on the cluster-based relative risk score.
 This effect is more pronounced for clusters with low compactness (e.g. the Southeast cluster stretched over the "black belt" region from Louisiana and Arkansas to Georgia) than clusters with higher compactness (e.g. New York City) because the circular shape of clusters includes more low-risk counties.
+
+
+### Map race and ethnicity rates NEW
+
+NEW MODIFICATION: We can also map the spatial distributions of the percent of black people and the percent of non-Hispanic non-White people (the two variables (with disability) with the strongest positive Pearson's r (Table 1 of original study). Mapping these two variables can help us to understand some of the local and cluster relative risk maps above (especially the clusters in the South and Southwest).
+
+```{r map-black-rates NEW, message = FALSE}
+tm_black_rates <- tm_shape(acs_covid) +
+  tm_polygons("black_pct",
+    title = "Percent of Black People\n(ACS 2014-2018)",
+    style = "quantile",
+    border.alpha = .2,
+    lwd = 0.2,
+    palette = "Oranges"
+  ) +
+  tm_shape(state) +
+  tm_borders("grey", lwd = .5) +
+  tm_layout(
+    legend.position = c("left", "bottom"),
+    legend.title.size = 0.8,
+    legend.text.size = 0.5
+  )
+
+tm_black_rates
+```
+
+```{r map-nonhispnonw-rates NEW, message = FALSE}
+tm_nonhispnonw_rates <- tm_shape(acs_covid) +
+  tm_polygons("non_hisp_non_white_pct",
+    title = "Percent of Non-Hispanic Non-White People\n(ACS 2014-2018)",
+    style = "quantile",
+    border.alpha = .2,
+    lwd = 0.2,
+    palette = "Oranges"
+  ) +
+  tm_shape(state) +
+  tm_borders("grey", lwd = .5) +
+  tm_layout(
+    legend.position = c("left", "bottom"),
+    legend.title.size = 0.8,
+    legend.text.size = 0.5
+  )
+ 
+tm_nonhispnonw_rates
+```
+
+
+
 
 ### Compare clusters
 
@@ -2103,4 +2130,3 @@ We also discovered an improved method for comparing the results of generalized l
 
 -   Integrate Emily's discussion and any new results that have yet to be discussed into a new discussion section.
 -   Separate a conclusions section from the discussion that concludes whether the reproduction attempt was successful, and what the implications are for how the original study contributes to scientific knowledge.
--   Modify one more thing!
