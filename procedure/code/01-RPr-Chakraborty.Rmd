@@ -419,6 +419,28 @@ tm_disability_rates <- tm_shape(acs_covid) +
 tm_disability_rates
 ```
 
+
+## Map race rates NEW
+```{r map-race-rates NEW, message = FALSE}
+tm_black_rates <- tm_shape(acs_covid) +
+  tm_polygons("black_pct",
+    title = "Percent of Black People\n(ACS 2014-2018)",
+    style = "quantile",
+    border.alpha = .2,
+    lwd = 0.2,
+    palette = "Oranges"
+  ) +
+  tm_shape(state) +
+  tm_borders("grey", lwd = .5) +
+  tm_layout(
+    legend.position = c("left", "bottom"),
+    legend.title.size = 0.8,
+    legend.text.size = 0.5
+  )
+
+tm_black_rates
+```
+
 ## Descriptive statistics
 
 Calculate descriptive statistics for dependent COVID-19 rate and independent socio-demographic characteristics, reproducing the min, max, mean, and SD columns of original study table 1.
